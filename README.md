@@ -1,6 +1,6 @@
 # API-java-spring-boot
 
-CRUD completo de productos
+##CRUD completo de productos
 a. Métodos HTTP: GET, POST, DELETE, PUT
 b. Endpoints:
 Creación: localhost:8181/productos/crear
@@ -9,7 +9,7 @@ Traer un producto en particular: localhost:8181/productos/{codigo_producto}
 Eliminación: localhost:8181/productos/eliminar/{codigo_producto}
 Edición: localhost:8181/productos/editar/{codigo_producto}
 
-CRUD completo de clientes
+##CRUD completo de clientes
 a. Métodos HTTP: GET, POST, DELETE, PUT
 b. Endpoints:
 Creación: localhost:8181/clientes/crear
@@ -18,7 +18,7 @@ Traer un cliente en particular: localhost:8181/clientes/{id_cliente}
 Eliminación: localhost:8181/clientes/eliminar/{id_cliente}
 Edición: localhost:8080/clientes/editar/{id_cliente}
 
-CRUD completo de ventas
+##CRUD completo de ventas
 a. Métodos HTTP: GET, POST, DELETE, PUT
 b. Endpoints:
 Creación: localhost:8181/ventas/crear
@@ -27,18 +27,25 @@ Traer una venta en particular: localhost:8181/ventas/{codigo_venta}
 Eliminación: localhost:8181/clientes/eliminar/{codigo_venta}
 Edición: localhost:8080/clientes/editar/{codigo_venta}
 
-Obtener todos los productos cuya cantidad_disponible sea menor a 5
+##Obtener todos los productos cuya cantidad_disponible sea menor a 5
 a. Métodos HTTP: GET
 b. Endpoint:
 localhost:8181/productos/falta_stock
 
-Obtener la lista de productos de una determinada venta
+##Obtener la lista de productos de una determinada venta
 a. Métodos HTTP: GET
 b. Endpoint:
 localhost:8181/ventas/productos/{codigo_venta}
 
-Obtener la sumatoria del monto y también cantidad total de ventas de un determinado
+##Obtener la sumatoria del monto y también cantidad total de ventas de un determinado
 día
 a. Métodos HTTP: GET
 b. Endpoint:
 localhost:8181/ventas/{fecha_venta}
+
+##Obtener el codigo_venta, el total, la cantidad de productos, el nombre del cliente y el
+apellido del cliente de la venta con el monto más alto de todas.
+a. Métodos HTTP: GET
+b. Endpoint:
+localhost:8181/ventas/mayor_venta
+Tener en cuenta patrón DTO para este escenario
