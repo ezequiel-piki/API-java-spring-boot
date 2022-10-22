@@ -49,3 +49,5 @@ a. Métodos HTTP: GET
 b. Endpoint:
 localhost:8181/ventas/mayor_venta
 Tener en cuenta patrón DTO para este escenario
+
+##Este proyecto queda abierto a futuras mejoras y modificaciones.
