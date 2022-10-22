@@ -4,6 +4,7 @@ package com.bazar.APIBazar.service;
 import com.bazar.APIBazar.model.Cliente;
 import com.bazar.APIBazar.model.Producto;
 import com.bazar.APIBazar.model.Venta;
+import com.bazar.APIBazar.model.VentaDTO;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -37,5 +38,7 @@ public interface IVentaService {
    //Obtener la sumatoria del monto y también cantidad total de ventas de un determinado día
    public String getRecaudacionDelDiaVentasTotales(LocalDate fecha_venta);
 
-
+    // localhost:8181/ventas/mayor_venta
+      //Tener en cuenta patrón DTO para este escenario
+    public VentaDTO mayorVenta();
 }

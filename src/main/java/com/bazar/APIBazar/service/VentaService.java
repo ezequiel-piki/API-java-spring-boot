@@ -4,10 +4,13 @@ package com.bazar.APIBazar.service;
 import com.bazar.APIBazar.model.Cliente;
 import com.bazar.APIBazar.model.Producto;
 import com.bazar.APIBazar.model.Venta;
+import com.bazar.APIBazar.model.VentaDTO;
 import com.bazar.APIBazar.repository.IVentaRepository;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collections;
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -96,6 +99,39 @@ public class VentaService implements IVentaService{
          
         return "La recaudacion del dia es de "+ recaudacion +" pesos. " + "Cantidad total de ventas en el dia de la fecha: "+ ventasDelDia.size()+ ". Fecha: "+ fechaString;
      
+    }
+
+    @Override
+    public VentaDTO mayorVenta() {
+    
+       VentaDTO ventaDTO = new VentaDTO();
+       
+       List<Venta> ventas = this.getListVentas();
+       List<Double> montoTotalCadaVentas = new ArrayList<>();
+       
+        for (Venta venta : ventas) {
+            montoTotalCadaVentas.add(venta.getTotal());
+        }
+       
+       Collections.sort(montoTotalCadaVentas);
+       
+       int sizeMontoTotalCadaVenta = montoTotalCadaVentas.size();
+        Double mayorMontoTotalCadaVenta = montoTotalCadaVentas.get(sizeMontoTotalCadaVenta-1);
+       
+       for (Venta venta : ventas) {
+           
+           
+            if(venta.getTotal()==mayorMontoTotalCadaVenta){
+             
+            ventaDTO.setCodigo_venta(venta.getCodigo_venta());
+            ventaDTO.setListaDeProductos(venta.getProductos());
+            ventaDTO.setNombre_cliente(venta.getUnCliente().getNombre());
+            ventaDTO.setApellido_cliente(venta.getUnCliente().getApellido());
+            ventaDTO.setTotal(venta.getTotal());
+           } 
+       }
+       
+       return ventaDTO;
     }
     
     

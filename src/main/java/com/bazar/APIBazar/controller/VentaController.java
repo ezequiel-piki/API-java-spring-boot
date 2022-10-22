@@ -4,6 +4,7 @@ package com.bazar.APIBazar.controller;
 import com.bazar.APIBazar.model.Cliente;
 import com.bazar.APIBazar.model.Producto;
 import com.bazar.APIBazar.model.Venta;
+import com.bazar.APIBazar.model.VentaDTO;
 import com.bazar.APIBazar.service.IVentaService;
 import java.time.LocalDate;
 import java.util.List;
@@ -83,5 +84,11 @@ public class VentaController {
        public String getRecaudacionDelDiaVentasTotales(@PathVariable("fecha_venta")  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fecha_venta) {
        return ventaService.getRecaudacionDelDiaVentasTotales(fecha_venta);
        }
-   
+       
+      // localhost:8181/ventas/mayor_venta
+      //Tener en cuenta patrón DTO para este escenario
+      @GetMapping("/ventas/mayor_venta")
+      public VentaDTO mayorVenta(){
+      return ventaService.mayorVenta();
+      }
 }
